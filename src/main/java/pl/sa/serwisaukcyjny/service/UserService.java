@@ -1,5 +1,6 @@
 package pl.sa.serwisaukcyjny.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.sa.serwisaukcyjny.model.User;
 import pl.sa.serwisaukcyjny.model.dto.UserDto;
@@ -11,6 +12,7 @@ public class UserService {
 
     UserRepository userRepository;
 
+    @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
