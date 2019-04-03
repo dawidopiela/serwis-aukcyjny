@@ -4,7 +4,9 @@ package pl.sa.serwisaukcyjny.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -17,7 +19,7 @@ public class ShoppingCart {
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "Cart_Product", joinColumns = @JoinColumn(name="shoppingcart_id"), inverseJoinColumns = @JoinColumn(name="product_id"))
-    Set<Product> products = new HashSet<>();
+    List<Product> products = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "shoppingCart")
     private Set<User> user= new HashSet<>();

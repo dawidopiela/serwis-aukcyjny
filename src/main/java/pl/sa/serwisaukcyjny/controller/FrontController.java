@@ -15,17 +15,13 @@ public class FrontController {
     @GetMapping("/")
     public String home() {
         return "index";
-
     }
-
-
 
    @GetMapping("/categories")
     public String Categories() {
         return "categories";
 
     }
-
 
 
 }
