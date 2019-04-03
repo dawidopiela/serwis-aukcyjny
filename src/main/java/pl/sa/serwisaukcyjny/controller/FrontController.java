@@ -17,4 +17,15 @@ public class FrontController {
         return "index";
 
     }
+
+
+
+   @GetMapping("/categories")
+    public String Categories() {
+        return "categories";
+
+    }
+
+
+
 }

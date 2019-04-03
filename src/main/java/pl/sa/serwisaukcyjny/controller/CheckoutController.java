@@ -11,10 +11,10 @@ public class CheckoutController {
 //    public FrontController(Service service) {
 //        this.service = service;
 //    }
-
-    @GetMapping("/checkout")
-    public String home() {
-        return "checkout";
-
-    }
+//
+//    @GetMapping("/checkout")
+//    public String home() {
+//        return "checkout";
+//
+//    }
 }

@@ -18,7 +18,7 @@ public class UserDto {
     @Email(message = "Your email is not valid")
     private String email;
     @Length(min = 6, message = "Your password requires at least 6 characters")
-    @Pattern(regexp = "([A-Za-z]+.*[0-9]+|[0-9]+.*[A-Za-z])", message = "Your password must have one capital letter and one digit")
+//    @Pattern(regexp = "([A-Za-z]+.*[0-9]+|[0-9]+.*[A-Za-z])", message = "Your password must have one capital letter and one digit")
     private String password;
     @NotNull(message = "Your email is not valid")
     private String city;

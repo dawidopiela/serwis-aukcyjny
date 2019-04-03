@@ -23,19 +23,19 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/register")
+    @GetMapping("/checkout")
     public String register(Model model, Authentication auth){
         model.addAttribute("user", new UserDto());
         model.addAttribute("auth",auth);
-        return "registerForm";
+        return "checkout";
     }
 
-    @PostMapping("/register")
+    @PostMapping("/checkout")
     public String register(@ModelAttribute("user") @Valid UserDto userDto, BindingResult bindingResult, Model model, Authentication auth){
         if(bindingResult.hasErrors()){
             System.out.println(bindingResult.getRawFieldValue("name"));
             model.addAttribute("auth",auth);
-            return "registerForm";
+            return "checkout";
         }
 
         System.out.println("Zarejestrowano: " + userService.addUser(userDto));
