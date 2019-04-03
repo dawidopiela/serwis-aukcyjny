@@ -45,6 +45,6 @@ public class UserController {
     @GetMapping("/login")
     public String login(Model model, Authentication auth){
         model.addAttribute("auth",auth);
-        return "loginForm";
+        return "login";
     }
 }
