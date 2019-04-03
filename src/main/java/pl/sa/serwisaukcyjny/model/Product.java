@@ -25,11 +25,20 @@ public class Product {
     private LocalDateTime date_added=LocalDateTime.now();
     private LocalDateTime end_added;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
+//    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+//    @JoinColumn(name = "user_id")
+//    private User user;
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
+
+
+    public Product(@NotNull String title, @NotNull String description, @NotNull String location, LocalDateTime end_added, Category category) {
+        this.title = title;
+        this.description = description;
+        this.location = location;
+        this.end_added = end_added;
+        this.category = category;
+    }
 }

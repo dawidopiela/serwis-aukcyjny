@@ -30,6 +30,10 @@ public class User {
     @Enumerated
     private AcountStatus account_status=AcountStatus.ACTIVE;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
-    private Set<Product> products= new HashSet<>();
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
+//    private Set<Product> products= new HashSet<>();
+
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "shopping_cart_id")
+    private ShoppingCart shoppingCart;
 }
