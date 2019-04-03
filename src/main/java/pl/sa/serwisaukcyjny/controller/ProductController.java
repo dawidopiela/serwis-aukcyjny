@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.sa.serwisaukcyjny.model.Category;
 import pl.sa.serwisaukcyjny.model.Product;
@@ -44,5 +45,26 @@ public class ProductController {
         System.out.println("Dodano produkt: "+
                 productService.createProductByUser(productDto));
         return "redirect:/";
+    }
+
+    @GetMapping("/deleteproduct/{id}")
+    public String deleteProduct(@PathVariable("id") Long id){
+        productService.deleteProductById(id);
+        return "redirect:/";
+    }
+
+    @GetMapping("/updateproduct/{id}")
+    public String updateProduct(@PathVariable("id") Long id, Model model){
+        Product product= productService.getProductById(id);
+        model.addAttribute("product", product);
+        return "updateProduct";
+    }
+
+    @PostMapping("/allproduct/{id}")
+    public String updatePost(@ModelAttribute @Valid Product product, Model model){
+        Long id = product.getId();
+        Product updateProduct = productService.updateProduct(id, product);
+        model.addAttribute("product", updateProduct);
+        return "product";
     }
 }

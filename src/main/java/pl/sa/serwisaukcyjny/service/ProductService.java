@@ -31,5 +31,22 @@ public class ProductService {
         return productRepository.save(product);
     }
 
+    public void deleteProductById(Long id){
+        productRepository.deleteById(id);
+    }
+
+    public Product getProductById(Long id){
+        return productRepository.getOne(id);
+    }
+
+    public Product updateProduct(Long id, Product product){
+        Product updateProduct = productRepository.getOne(id);
+        updateProduct.setTitle(product.getTitle());
+        updateProduct.setDescription(product.getDescription());
+        updateProduct.setCategory(product.getCategory());
+        updateProduct.setLocation(product.getLocation());
+        updateProduct.setEnd_added(product.getEnd_added());
+        return productRepository.save(updateProduct);
+    }
     // delete modyfikacja dodawnaie do koszyka
 }
