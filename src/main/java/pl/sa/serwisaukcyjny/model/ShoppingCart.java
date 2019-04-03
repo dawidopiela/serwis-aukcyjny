@@ -10,8 +10,11 @@ import java.util.Set;
 @Data
 @Entity
 public class ShoppingCart {
-    private Long count;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "ShoppingCart")
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "shoppingCart")
     private Set<User> user= new HashSet<>();
 }
