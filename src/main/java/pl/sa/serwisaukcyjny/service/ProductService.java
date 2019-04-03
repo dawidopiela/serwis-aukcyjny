@@ -49,4 +49,6 @@ public class ProductService {
         return productRepository.save(updateProduct);
     }
     // delete modyfikacja dodawnaie do koszyka
+
+//    public
 }
