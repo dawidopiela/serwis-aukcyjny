@@ -28,7 +28,7 @@ public class User {
     private String city;
     private LocalDateTime date_creation_account=LocalDateTime.now();
     @Enumerated
-    private AcountStatus account_status=AcountStatus.ACTIVE;
+    private AcountStatus active=AcountStatus.ACTIVE;
 
 //    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
 //    private Set<Product> products= new HashSet<>();
