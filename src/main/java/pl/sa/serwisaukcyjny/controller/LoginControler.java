@@ -12,21 +12,21 @@ import javax.validation.Valid;
 
 public class LoginControler {
 
-//    @GetMapping("/login")
-//    public String register(Model model, Authentication auth) {
-//        model.addAttribute("user", new UserDto());
-//        model.addAttribute("auth", auth);
-//        return "login";
-//    }
-//
-//    @PostMapping("/login")
-//    public String register(@ModelAttribute("user") @Valid UserDto userDto, BindingResult bindingResult, Model model, Authentication auth) {
-//        if (bindingResult.hasErrors()) {
-//            System.out.println(bindingResult.getRawFieldValue("name"));
-//            model.addAttribute("auth", auth);
-//            return "login";
-//        }
-//      //  System.out.println("Zarejestrowano: " + userService.addUser(userDto));
-//        return "redirect:/";
-//    }
+    @GetMapping("/login")
+    public String register(Model model, Authentication auth) {
+        model.addAttribute("user", new UserDto());
+        model.addAttribute("auth", auth);
+        return "login";
+    }
+
+    @PostMapping("/login")
+    public String register(@ModelAttribute("user") @Valid UserDto userDto, BindingResult bindingResult, Model model, Authentication auth) {
+        if (bindingResult.hasErrors()) {
+            System.out.println(bindingResult.getRawFieldValue("name"));
+            model.addAttribute("auth", auth);
+            return "login";
+        }
+      //  System.out.println("Zarejestrowano: " + userService.addUser(userDto));
+        return "redirect:/";
+    }
 }
